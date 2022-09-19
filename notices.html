@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Altissime Website</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font: 400 15px/1.8 Lato, sans-serif;
+            color: #777;
+        }
+        h3, h4 {
+            margin: 10px 0 30px 0;
+            letter-spacing: 10px;
+            font-size: 20px;
+            color: #111;
+        }
+        h5{
+            font: 400 15px/1.8 Lato, sans-serif;
+            color: #fff;
+        }
+        .container {
+            padding: 80px 120px;
+        }
+        .person {
+            border: 10px solid transparent;
+            margin-bottom: 25px;
+            width: 80%;
+            height: 80%;
+            opacity: 1;
+        }
+        .person:hover {
+            border-color: #f1f1f1;
+        }
+        /* Centered text */
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .carousel-inner img {
+            width: 100%; /* Set width to 100% */
+            margin: auto;
+        }
+        .carousel-caption h3 {
+            color: #fff !important;
+        }
+        @media (max-width: 600px) {
+            .carousel-caption {
+                display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+            }
+        }
+        .bg-1 {
+            background: #2d2d30;
+            color: #bdbdbd;
+        }
+        .bg-1 h3 {color: #fff;}
+        .bg-1 p {font-style: italic;}
+        .list-group-item:first-child {
+            border-top-right-radius: 0;
+            border-top-left-radius: 0;
+        }
+        .list-group-item:last-child {
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        .thumbnail {
+            padding: 0 0 15px 0;
+            border: none;
+            border-radius: 0;
+        }
+        .thumbnail p {
+            margin-top: 15px;
+            color: #555;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #f1f1f1;
+            border-radius: 0;
+            transition: .2s;
+        }
+        .btn:hover, .btn:focus {
+            border: 1px solid #333;
+            background-color: #fff;
+            color: #000;
+        }
+        .modal-header, h4, .close {
+            background-color: #333;
+            color: #fff !important;
+            text-align: center;
+            font-size: 30px;
+        }
+        .modal-header, .modal-body {
+            padding: 40px 50px;
+        }
+        .nav-tabs li a {
+            color: #777;
+        }
+        #googleMap {
+            width: 100%;
+            height: 400px;
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+        }
+        .navbar {
+            font-family: Montserrat, sans-serif;
+            margin-bottom: 0;
+            background-color: #004f2f61;
+            border: 0;
+            height: 40px;
+            font-size: 11px !important;
+            letter-spacing: 4px;
+            opacity: 0.9;
+        }
+        .navbar li a, .navbar .navbar-brand {
+            color: #ffffff !important;
+            height: 40px;
+        }
+        .navbar-nav li a:hover {
+        <!--hover text colour -->
+            color: rgb(255, 253, 100) !important;
+        }
+        .navbar-nav li.active a {
+            color: #fff !important;
+            background-color: #29292c !important;
+        }
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+        }
+        .open .dropdown-toggle {
+            color: #fff;
+            background-color: #555 !important;
+        }
+        .dropdown-menu li a {
+            color: #000 !important;
+        }
+        .dropdown-menu li a:hover {
+            background-color: #6d9191 !important;
+        }
+        footer {
+            background-color: #2d2d30;
+            color: #f5f5f5;
+            padding: 32px;
+        }
+        footer a {
+            color: #f5f5f5;
+        }
+        footer a:hover {
+            color: #777;
+            text-decoration: none;
+        }
+        .form-control {
+            border-radius: 0;
+        }
+        textarea {
+            resize: none;
+        }
+    </style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="100">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!--<a class="navbar-brand" href="#myPage">
+                <img src="img/altissime_logo.png" width="30" height="30"></a>-->
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="notices.html">NOTICES</a></li>
+                <li><a href="resources.html">RESOURCES</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="archive.html">ARCHIVES
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">2021</a></li>
+                        <li><a href="#">2020</a></li>
+                        <li><a href="#">2019</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br><br>
+<div class="container-fluid">
+    <div class="row content">
+
+        <div class="col-sm-9">
+            <h4><small>Christmas Concert</small></h4>
+            <hr>
+            <h2>Remember your capes!</h2>
+            <h5><span class="glyphicon glyphicon-time"></span> </h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <br><br>
+
+            <h4><small>THE BIG SING FINALE</small></h4>
+            <hr>
+            <h2>Packing Check List</h2>
+            <p>Keep your luggage as light as possible. Everything on this list is important as we have a lot of walking to do, and it is still Winter ☺</p>
+            <p>Wear your School uniform, with a twist. Wear your blazer and Finale crewneck or the school hoodie. Wear navy or black tailored trousers. NOT jeans, leggings or tracksuit pants. School shoes and black socks, please. You will wear this to fly down, and walk to and from and during the daytime in the Town Hall when you are not singing.</p>
+            <br>
+            <div class="row">
+                <div class="col-lg-12 mx-auto">
+                    <!-- CHECKBOX LIST -->
+                    <div class="card rounded border-0 shadow-sm position-relative">
+                        <div class="card-body p-5">
+                            <div class="d-flex align-items-center mb-4 pb-4 border-bottom"><i class="far fa-calendar-alt fa-3x"></i>
+                                <div class="ms-3">
+                                </div>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" id="flexCheck1" type="checkbox" checked>
+                                <label class="form-check-label" for="flexCheck1"><span class="fst-italic pl-1">Altissime dress and sash, black tights, safety pin, black vest top for under dress, pounamu. (In a flat pack)</span></label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" id="flexChec2" type="checkbox">
+                                <label class="form-check-label" for="flexChec2"><span class="fst-italic pl-1">flat black slip-on shoes to go with your Altissime dress</span></label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" id="flexCheck3" type="checkbox">
+                                <label class="form-check-label" for="flexCheck3"><span class="fst-italic pl-1">your music</span></label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" id="flexCheck4" type="checkbox">
+                                <label class="form-check-label" for="flexCheck4"><span class="fst-italic pl-1">pencil for rehearsals</span></label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" id="flexCheck5" type="checkbox">
+                                <label class="form-check-label" for="flexCheck5"><span class="fst-italic pl-1">just a small number of comfortable clothes for evenings and leisure time (eg a couple of T-shirts, trackpants, sweater, some socks) </span></label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" id="flexCheck6" type="checkbox">
+                                <label class="form-check-label" for="flexCheck6"><span class="fst-italic pl-1">underwear for four days</span></label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" id="flexCheck7" type="checkbox">
+                                <label class="form-check-label" for="flexCheck7"><span class="fst-italic pl-1">nightwear</span></label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" id="flexCheck8" type="checkbox">
+                                <label class="form-check-label" for="flexCheck8"><span class="fst-italic pl-1">toilet gear, sanitary gear, any medication required</span></label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" id="flexCheck9" type="checkbox">
+                                <label class="form-check-label" for="flexCheck9"><span class="fst-italic pl-1">raincoat and warm coat, small umbrella (optional) </span></label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" id="flexCheck10" type="checkbox">
+                                <label class="form-check-label" for="flexCheck10"><span class="fst-italic pl-1">scarf, hat and gloves</span></label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" id="flexCheck11" type="checkbox">
+                                <label class="form-check-label" for="flexCheck11"><span class="fst-italic pl-1">waterproof overtrousers VERY important</span></label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" id="flexCheck12" type="checkbox">
+                                <label class="form-check-label" for="flexCheck12"><span class="fst-italic pl-1">an old newspaper for stuffing your wet shoes</span></label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" id="flexCheck13" type="checkbox">
+                                <label class="form-check-label" for="flexCheck13"><span class="fst-italic pl-1">two empty plastic bags – for dirty washing, wet shoes to be taken home, etc</span></label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" id="flexCheck14" type="checkbox">
+                                <label class="form-check-label" for="flexCheck14"><span class="fst-italic pl-1">something appropriate to wear for the party at the end☺</span></label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" id="flexCheck15" type="checkbox">
+                                <label class="form-check-label" for="flexCheck15"><span class="fst-italic pl-1">a packet or two of biscuits, or slices or cake for four suppers. This will be shared each evening.</span></label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" id="flexCheck16" type="checkbox">
+                                <label class="form-check-label" for="flexCheck16"><span class="fst-italic pl-1">torch and batteries </span></label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" id="flexCheck17" type="checkbox">
+                                <label class="form-check-label" for="flexCheck17"><span class="fst-italic pl-1"></span>A light hanger for your Altissime dress, LABELLED with your name, on a small piece of paper around the neck of the hanger, so it is easily visible  </label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" id="flexCheck18" type="checkbox">
+                                <label class="form-check-label" for="flexCheck18"><span class="fst-italic pl-1"></span>Snacks to keep you going</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <p>When we are there, you will use your daypack for taking your lunch in its box, snacks, drink bottle, music, pencil, warm outdoor clothes and phone to and from the Town Hall each day, so please ensure that it will all fit ☺</p>
+            <br><br>
+
+            <h4><small>THE BIG SING FINALE</small></h4>
+            <hr>
+            <h2>Congratulations everyone!</h2>
+            <h5><span class="glyphicon glyphicon-time"></span></h5>
+            <img src="img/big_sing_capes.JPG" class="img-responsive">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <br><br>
+
+            <h4><small>THE BIG SING</small></h4>
+            <hr>
+            <h2>Meet at the bus stop at 09:15</h2>
+            <h5><span class="glyphicon glyphicon-time"></span></h5>
+            <p>Food is my passion. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <br><br>
+
+            <hr>
+            <h4>Leave a Comment:</h4>
+            <form role="form">
+                <div class="form-group">
+                    <textarea class="form-control" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+            <br><br>
+
+        </div>
+        <div class="col-sm-3 ">
+
+            <h4>Maaike's messages</h4>
+            <div class="overflow-auto">
+                <!--
+                This is the format for putting in a comment
+                   <div class="well" style="background-color: pink">
+                   <p> Place text here!</p>
+                   </div>
+                   -->
+                <div class="well" style="background-color: pink">
+                <p>Good morning! No rehearsal on Friday :)</p></div>
+                </div>
+
+            <h4>Important Dates</h4>
+                <p><strong>1st December</strong> Christmas Concert</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer -->
+<footer class="text-center">
+    <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+    </a><br><br>
+</footer>
+
+<script>
+    $(document).ready(function(){
+        // Initialize Tooltip
+        $('[data-toggle="tooltip"]').tooltip();
+
+        // Add smooth scrolling to all links in navbar + footer link
+        $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+
+                // Prevent default anchor click behavior
+                event.preventDefault();
+
+                // Store hash
+                let hash = this.hash;
+
+                // Using jQuery's animate() method to add smooth page scroll
+                // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 900, function(){
+
+                    // Add hash (#) to URL when done scrolling (default click behavior)
+                    window.location.hash = hash;
+                });
+            } // End if
+        });
+    })
+</script>
+
+</body>
+</html>
